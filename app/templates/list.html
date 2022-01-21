@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Current user: {{ user.username }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout"><span class="material-icons">logout</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% if user.is_superuser == True %}
+            <a href="/add-user">
+                <span class="material-icons" style="font-size: 20px;">person_add_alt</span> Add user
+            </a>
+        {% endif %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="text-align:center">Username</th>
+                <th style="text-align:center">Superuser</th>
+                {% if user.is_superuser == True %}
+                <th style="text-align:center">Actions</th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for r in result %}
+                <tr>
+                    <td style="text-align:center">{{ r[1] }}</td>
+                    <td style="text-align:center">
+                        {% if r[3] == True %}
+                            <span style="color: darkgreen" class="material-icons">check</span>
+                        {% else %}
+                            <span style="color: darkred" class="material-icons">close</span>
+                        {% endif %}
+                    </td>
+                    {% if user.is_superuser == True %}
+                    <td style="text-align:center">
+                        <a href="/edit/{{ r[1] }}"><span class="material-icons">edit</span></a>
+                        <a href="/delete/{{ r[1] }}"><span class="material-icons">person_remove</span></a>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

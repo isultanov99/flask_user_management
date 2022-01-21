@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Current user: {{ user.username }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout"><span class="material-icons">logout</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <form action="" method="post">
+            <h1 class="h1 fw-normal">Edit user {{ username }}</h1>
+
+            <div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="namecheck" value="{{ request.form.namecheck }}"> Change username
+                    </label>
+                </div>
+                <input type="username" class="form-control" id="floatingInput" placeholder="Username"
+                       name="username" value="{{ request.form.username }}">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="passwordcheck" value="{{ request.form.passwordcheck }}"> Change password
+                    </label>
+                </div>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                       name="password" value="{{ request.form.password }}">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="checkbox" value="{{ request.form.checkbox }}"> Is superuser
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" value="Login">Confirm</button>
+        </form>
+    </div>
+{% endblock %}
