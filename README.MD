@@ -13,11 +13,11 @@ Ordinary users can only view the list of users, superusers have the ability to e
 
 ## Getting Started — Начало работы
 
-First of all, set up environment variable `DATABASE_URL` with URL of your `PostgreSQL` db.
+First of all, set up environment variable `DATABASE_URL` with connection string URI of your `PostgreSQL` DB using the format defined in the [documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
 
 ---
 
-Первым делом настройте переменную среды `DATABASE_URL` с адресом вашей БД `PostgreSQL`.
+Первым делом настройте переменную среды `DATABASE_URL` с адресом вашей БД `PostgreSQL` в формате, изложенном в [документации](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
 
 ---
 
@@ -35,8 +35,8 @@ $ flask db upgrade
 
 Linux (Tested on Ubuntu 21.10 and WSL Ubuntu 18.04)
 ```bash
-$ git clone https://github.com/isultanov99/async_agregator.git
-$ cd async_agregator/
+$ git clone https://github.com/isultanov99/flask_user_management.git
+$ cd flask_user_management/
 $ pip install virtualenv
 $ python -m virtualenv venv
 $ source venv/bin/activate
@@ -49,8 +49,8 @@ $ python -m flask db upgrade
 Windows (Tested on Windows 10 ver. 20H1)
 
 ```cmd
-git clone https://github.com/isultanov99/async_agregator.git
-cd async_agregator
+git clone https://github.com/isultanov99/flask_user_management.git
+cd flask_user_management
 python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
